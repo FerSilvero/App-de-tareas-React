@@ -60,14 +60,9 @@
               0 0 100px #E23E57;
 }
 
-.tareas-lista-contenedor {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 5px;
-}
 
-.errors {
+
+.errores {
   color: #EEEEEE;
   width: 460px;
   height: 26px;

@@ -1,13 +1,17 @@
 import './App.css';
-import TareaFormulario from './componentes/TareaFormulario';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import TareaPage from './pages/TareaPage';
 
 function App() {
   return (
-    <div className="aplicacion-tareas">
-      <div className='tareas-lista-principal' >
-        <h1>Tareas</h1>
-        <TareaFormulario />
-      </div>
+    <div className='app'>
+      <Router>
+        <Routes>
+          <Route path="/" element={ <HomePage/> } />
+          <Route path="/tareas" element={ <TareaPage/> } />
+        </Routes>
+      </Router>
     </div>
   );
 }

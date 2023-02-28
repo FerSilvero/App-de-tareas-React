@@ -1,0 +1,11 @@
+.homepage {
+  height: 100vh;
+  background-color: #88304E;
+}
+
+a {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}

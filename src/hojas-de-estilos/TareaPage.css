@@ -1,0 +1,30 @@
+h1 {
+  color: #fff;
+  font-size: 25px;
+  font-family: Roboto, sans-serif;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.aplicacion-tareas {
+  height: 100vh;
+  color: #FFFBF5;
+  background-color: #311D3F;
+  font-family: Lato, sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Lista de Tareas */
+
+.tareas-lista-principal {
+  width: 600px;
+  min-height: 565px;
+  background-color: #88304E;
+  padding: 25px;
+  margin: 30px;
+  box-shadow: 0px 4px 20px 20px #000;
+  border-radius: 26px;
+}
