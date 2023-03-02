@@ -1,54 +1,51 @@
 import React from 'react'
 import { useState } from 'react'
-import Tarea from './Tarea'
 import TareaFormulario from './TareaFormulario'
 import '../hojas-de-estilos/ListaDeTareas.css'
 
-function ListaDeTareas() {
+import { AiOutlineCloseCircle } from "react-icons/ai";
+import { BiEdit } from "react-icons/bi";
 
-  const [tareas, setTareas] = useState([]);
+function ListaDeTareas({ tareas, completarTarea, eliminarTarea, modificarTarea }) {
 
-  const agregarTarea = tarea => {
-    if (tarea.texto.trim()) {
-      tarea.texto = tarea.texto.trim();
-      const tareasActualizadas = [tarea, ...tareas];
-      setTareas(tareasActualizadas);
-    }
-  }
+  const [edit, setEdit] = useState({
+    id: null,
+    texto: '',
+  });
 
-  const eliminarTarea = id => {
-    const tareasActualizadas = tareas.filter(tarea => tarea.id !== id);
-    setTareas(tareasActualizadas);
-  }
-
-  const completarTarea = id => {
-    const tareasActualizadas = tareas.map(tarea => {
-      if (tarea.id === id) {
-        tarea.completada = !tarea.completada;
-      }
-      return tarea;
+  const submitUpdate = (texto) => {
+    modificarTarea(edit.id, texto);
+    setEdit({
+      id: null,
+      texto: '',
     });
-    setTareas(tareasActualizadas);
+  };
+
+  if (edit.id) {
+    return <TareaFormulario edit={edit} onSubmit={submitUpdate} />;
   }
 
-  return (
-    <>
-      <TareaFormulario onSubmit={agregarTarea} />
-      <div className='tareas-lista-contenedor'>
-        {
-          tareas.map((tarea) =>
-            <Tarea
-              key={tarea.id}
-              id={tarea.id} 
-              texto={tarea.texto}
-              completada={tarea.completada}
-              completarTarea={completarTarea}
-              eliminarTarea={eliminarTarea} />
-          ) 
-        }
-      </div>
-    </>
-  )
+  return tareas.map((tarea) => (
+    <div
+          className={tarea.completada ? 'tarea-contenedor completada' : 'tarea-contenedor'}
+          key={tarea.id}>
+            <div 
+              className='tarea-texto'
+              onClick={() => completarTarea(tarea.id)}>
+              {tarea.texto}
+            </div>
+            <div 
+              onClick={() => eliminarTarea(tarea.id)}>
+              <AiOutlineCloseCircle className='tarea-icono-eliminar' 
+              />
+            </div>
+            <div
+              onClick={() => setEdit({id: tarea.id, texto: tarea.texto})}>
+              <BiEdit className='tarea-icono-modificar' 
+              />
+            </div>
+        </div>
+  ))
 }
 
 export default ListaDeTareas

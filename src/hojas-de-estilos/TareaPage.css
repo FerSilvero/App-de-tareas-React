@@ -7,7 +7,7 @@ h1 {
 }
 
 .aplicacion-tareas {
-  height: 100vh;
+  height: auto;
   color: #FFFBF5;
   background-color: #311D3F;
   font-family: Lato, sans-serif;

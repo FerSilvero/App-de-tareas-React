@@ -1,18 +1,20 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import '../hojas-de-estilos/TareaFormulario.css'
 import { v4 as uuidv4 } from 'uuid';
 
 function TareaFormulario(props) {
 
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState(props.edit ? props.edit.texto : "");
   const [errores, setErrores] = useState(null)
 
-  const manejarCambio = e => {
+  const inputRef = useRef(null)
+
+  const handleChange = e => {
     setInput(e.target.value);
   }
 
-  const manejarEnvio = e => {
+  const handleSubmit = e => {
     e.preventDefault();
     
     if(input.trim() === '') {
@@ -30,30 +32,58 @@ function TareaFormulario(props) {
       return;
     }
 
+    /*
     const tareaNueva = {
       id: uuidv4(),
       texto: input,
       completada: false
     }
+    */
 
-    props.onSubmit(tareaNueva);
+    props.onSubmit({
+      id: uuidv4(),
+      texto: input,
+      completada: false
+    });
     setInput('');
     setErrores(null)
   }
 
   return (
-    <form 
-      className='tarea-formulario'
-      onSubmit={manejarEnvio}>
-      <input 
-        className='tarea-input'
+    <form className='tarea-formulario'>
+      {props.edit ? (
+        <>
+        <input 
+        className='tarea-input' //input-editar
+        value={input}
+        type='text'
+        placeholder='Modifica la Tarea'
+        ref={inputRef}
+        name='texto'
+        onChange={handleChange}
+      />
+      <button onClick={handleSubmit} className='shadow__btn'>
+        Editar Tarea
+      </button>
+      {
+        errores&&
+        <div className='errores'>
+          {errores}
+        </div>
+      }
+        </>
+      ) : (
+        <>
+        <input 
+        className='tarea-input' //input-agregar
         value={input}
         type='text'
         placeholder='Escribe una Tarea'
+        ref={inputRef}
         name='texto'
-        onChange={manejarCambio}
+        onChange={handleChange}
       />
-      <button className='shadow__btn'>
+        <button onClick={handleSubmit} className='shadow__btn'> 
         Agregar Tarea
       </button>
       {
@@ -62,6 +92,9 @@ function TareaFormulario(props) {
           {errores}
         </div>
       }
+        </>
+      )
+    }
     </form>
   )
 }
