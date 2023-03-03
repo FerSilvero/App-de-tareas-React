@@ -6,7 +6,7 @@ import '../hojas-de-estilos/ListaDeTareas.css'
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { BiEdit } from "react-icons/bi";
 
-function ListaDeTareas({ tareas, completarTarea, eliminarTarea, modificarTarea }) {
+function ListaDeTareas({ id, texto, completada, completarTarea, eliminarTarea, modificarTarea }) {
 
   const [edit, setEdit] = useState({
     id: null,
@@ -25,27 +25,27 @@ function ListaDeTareas({ tareas, completarTarea, eliminarTarea, modificarTarea }
     return <TareaFormulario edit={edit} onSubmit={submitUpdate} />;
   }
 
-  return tareas.map((tarea) => (
-    <div
-          className={tarea.completada ? 'tarea-contenedor completada' : 'tarea-contenedor'}
-          key={tarea.id}>
-            <div 
-              className='tarea-texto'
-              onClick={() => completarTarea(tarea.id)}>
-              {tarea.texto}
-            </div>
-            <div 
-              onClick={() => eliminarTarea(tarea.id)}>
-              <AiOutlineCloseCircle className='tarea-icono-eliminar' 
-              />
-            </div>
-            <div
-              onClick={() => setEdit({id: tarea.id, texto: tarea.texto})}>
-              <BiEdit className='tarea-icono-modificar' 
-              />
-            </div>
-        </div>
-  ))
+  return (
+    <div 
+    className={completada ? 'tarea-contenedor completada' : 'tarea-contenedor'}
+    key={id}>
+      <div 
+        className='tarea-texto'
+        onClick={() => completarTarea(id)}>
+        {texto}
+      </div>
+      <div 
+        onClick={() => eliminarTarea(id)}>
+        <AiOutlineCloseCircle className='tarea-icono-eliminar' 
+        />
+      </div>
+      <div 
+        onClick={() => setEdit({id: id, texto: texto, completada: completada})}>
+        <BiEdit className='tarea-icono-modificar' 
+        />
+      </div>
+  </div>
+  )
 }
 
 export default ListaDeTareas

@@ -48,11 +48,19 @@ const modificarTarea = (id, nuevoTexto) => {
     <>
       <TareaFormulario onSubmit={agregarTarea} />
       <div className='tareas-lista-contenedor'>
+        {
+        tareas.map((tarea) =>
         <ListaDeTareas
           tareas={tareas}
+          key={tarea.id}
+          id={tarea.id}
+          texto={tarea.texto}
+          completada={tarea.completada}
           completarTarea={completarTarea}
           eliminarTarea={eliminarTarea}
           modificarTarea={modificarTarea} />
+        )
+        }
       </div>
     </>
       
