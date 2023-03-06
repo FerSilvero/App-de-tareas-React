@@ -32,14 +32,6 @@ function TareaFormulario(props) {
       return;
     }
 
-    /*
-    const tareaNueva = {
-      id: uuidv4(),
-      texto: input,
-      completada: false
-    }
-    */
-
     props.onSubmit({
       id: uuidv4(),
       texto: input,

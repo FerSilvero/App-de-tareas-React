@@ -10,14 +10,14 @@ function ListaDeTareas({ id, texto, completada, completarTarea, eliminarTarea, m
 
   const [edit, setEdit] = useState({
     id: null,
-    texto: '',
+    texto: texto
   });
 
   const submitUpdate = (texto) => {
     modificarTarea(edit.id, texto);
     setEdit({
       id: null,
-      texto: '',
+      texto: texto
     });
   };
 
@@ -27,8 +27,7 @@ function ListaDeTareas({ id, texto, completada, completarTarea, eliminarTarea, m
 
   return (
     <div 
-    className={completada ? 'tarea-contenedor completada' : 'tarea-contenedor'}
-    key={id}>
+    className={completada ? 'tarea-contenedor completada' : 'tarea-contenedor'}>
       <div 
         className='tarea-texto'
         onClick={() => completarTarea(id)}>
@@ -40,7 +39,7 @@ function ListaDeTareas({ id, texto, completada, completarTarea, eliminarTarea, m
         />
       </div>
       <div 
-        onClick={() => setEdit({id: id, texto: texto, completada: completada})}>
+        onClick={() => setEdit({id: id, texto: texto})}>
         <BiEdit className='tarea-icono-modificar' 
         />
       </div>

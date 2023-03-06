@@ -9,28 +9,20 @@ function Tarea() {
   const [tareas, setTareas] = useState([]);
 
   const agregarTarea = tarea => {
-      const tareasActualizadas = [tarea, ...tareas];
+    const tareasActualizadas = [tarea, ...tareas];
       setTareas(tareasActualizadas);  
   }
-/*
   const modificarTarea = (id, nuevoTexto) => {
     setTareas((prev) =>
-    prev.map((item) => (item.id === id ? nuevoTexto : item))
-    );
-  };
-*/
-
-const modificarTarea = (id, nuevoTexto) => {
-  setTareas((prev) =>
-    prev.map((tarea) =>
+      prev.map((tarea) =>
       tarea.id === id ? nuevoTexto : tarea
-    )
-  );
-};
-
+      )
+    );
+  }
+  
   const eliminarTarea = id => {
     const tareasActualizadas = tareas.filter(tarea => tarea.id !== id);
-    setTareas(tareasActualizadas);
+      setTareas(tareasActualizadas);
   }
 
   const completarTarea = id => {
@@ -43,7 +35,6 @@ const modificarTarea = (id, nuevoTexto) => {
     setTareas(tareasActualizadas);
   }
 
-
   return (
     <>
       <TareaFormulario onSubmit={agregarTarea} />
@@ -51,7 +42,6 @@ const modificarTarea = (id, nuevoTexto) => {
         {
         tareas.map((tarea) =>
         <ListaDeTareas
-          tareas={tareas}
           key={tarea.id}
           id={tarea.id}
           texto={tarea.texto}
