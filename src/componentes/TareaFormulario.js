@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 function TareaFormulario(props) {
 
-  const [input, setInput] = useState(props.edit ? props.edit.texto : "");
+  const [input, setInput] = useState(props.edit ? props.edit.texto : '');
   const [errores, setErrores] = useState(null)
 
   const inputRef = useRef(null)
@@ -32,11 +32,21 @@ function TareaFormulario(props) {
       return;
     }
 
-    props.onSubmit({
-      id: uuidv4(),
-      texto: input,
-      completada: false
-    });
+    props.onSubmit(
+      (props.edit ? 
+        {
+        id: uuidv4(),
+        texto: input,
+        completada: props.edit.completada
+        } : 
+        {
+        id: uuidv4(),
+        texto: input,
+        completada: false
+        }
+      )  
+    );
+    console.log(props.onSubmit)
     setInput('');
     setErrores(null)
   }
