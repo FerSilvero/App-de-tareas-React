@@ -1,30 +1,91 @@
 h1 {
   color: #fff;
-  font-size: 25px;
+  font-size: 15px;
   font-family: Roboto, sans-serif;
   text-align: center;
   margin-bottom: 20px;
 }
 
-.aplicacion-tareas {
-  height: auto;
-  color: #FFFBF5;
+body {
   background-color: #311D3F;
-  font-family: Lato, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
 
+.aplicacion-tareas {
+  color: #FFFBF5;
+  font-family: Lato, sans-serif;
+}
+
 /* Lista de Tareas */
 
 .tareas-lista-principal {
-  width: 600px;
-  min-height: 565px;
+  width: 550px;
+  min-height: 500px;
   background-color: #88304E;
   padding: 25px;
   margin: 30px;
   box-shadow: 0px 4px 20px 20px #000;
   border-radius: 26px;
+}
+
+.footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+  padding: 1em 0;
+}
+
+.texto-footer {
+  color: #c9d1d9;
+  font-family: Roboto, sans-serif;
+  font-style: italic;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  margin-right: 15px;
+  cursor: default;
+}
+
+.icono-github {
+  color: #c9d1d9;
+  background-color: #000;
+  font-size: 1.3rem;
+  margin-right: 10px;
+  border-radius: 50%;
+  transition: 0.3s;
+  transition-property: box-shadow;
+}
+
+  
+.icono-github:hover {
+  color: #c9d1d9;
+  box-shadow: 0 0 5px #c9d1d9,
+              0 0 5px #c9d1d9,
+              0 0 5px #c9d1d9,
+              0 0 5px #c9d1d9;
+}
+
+.icono-linkedin {
+  color: #c9d1d9;
+  background-color: #000;
+  font-size: 1.3rem;
+  margin-right: 10px;
+  border-radius: 50%;
+  transition: 0.3s;
+  transition-property: box-shadow;
+}
+
+.icono-linkedin:hover {
+  color: #00f;
+  box-shadow: 0 0 5px #00f,
+              0 0 5px #00f,
+              0 0 5px #00f,
+              0 0 5px #00f;
 }
