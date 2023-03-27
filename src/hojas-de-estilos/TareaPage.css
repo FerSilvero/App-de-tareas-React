@@ -7,7 +7,7 @@ h1 {
 }
 
 body {
-  background-color: #311D3F;
+  background-image: radial-gradient(circle at 50% -20.71%, #913d8b 0, #77347d 16.67%, #5e2a6c 33.33%, #441f59 50%, #2c1446 66.67%, #180934 83.33%, #090024 100%);
   display: flex;
   flex-direction: column;
   min-height: 100vh;
