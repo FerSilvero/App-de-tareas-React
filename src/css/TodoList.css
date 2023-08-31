@@ -1,0 +1,49 @@
+.container-todo {
+  display: grid;
+  grid-template-columns: 80% 1fr;
+  gap: 5px;
+  align-items: center;
+  padding: 5px 0;
+  margin: 5px 0;
+  border-radius: 7px;
+  cursor: pointer; 
+}
+
+.container-todo:nth-child(3n + 1) {
+  background-color: #522546;
+}
+  
+.container-todo:nth-child(3n + 2) {
+  background-color: #4D1C40;
+}
+  
+.container-todo:nth-child(3n + 3) {
+  background-color: #46243D;
+}
+
+.todo-text {
+  font-size: 1.2rem;
+  padding-left: 10px;
+}
+
+.container-icon {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-items: center;
+}
+
+.icon {
+  width: 25px;
+  height: 25px;
+}
+
+.container-todo.completada {
+  background-color: #040303;
+  text-decoration: line-through;
+}
+
+@media screen and (max-width: 767px) {
+  .container-todo {
+    grid-template-columns: 70% 1fr;
+  }
+}

@@ -1,5 +1,11 @@
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
+  margin: 0;
+}
+
+.app {
+  display: grid;
+  place-items: center;
+  grid-template-rows: 8fr auto;
+  min-height: 100vh;
 }

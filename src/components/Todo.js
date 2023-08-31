@@ -1,10 +1,10 @@
 import React from 'react'
 import { useState } from 'react'
-import '../hojas-de-estilos/Tarea.css'
-import ListaDeTareas from './ListaDeTareas';
-import TareaFormulario from './TareaFormulario';
+import '../css/Todo.css'
+import TodoForm from './TodoForm'
+import TodoList from './TodoList'
 
-function Tarea() {
+function Todo() {
 
   const [tareas, setTareas] = useState([]);
 
@@ -37,11 +37,11 @@ function Tarea() {
 
   return (
     <>
-      <TareaFormulario onSubmit={agregarTarea} />
-      <div className='tareas-lista-contenedor'>
-        {
+    <TodoForm onSubmit={agregarTarea} />
+      <div className='container-list-todos'>
+      {
         tareas.map((tarea) =>
-        <ListaDeTareas
+        <TodoList
           key={tarea.id}
           id={tarea.id}
           texto={tarea.texto}
@@ -53,8 +53,7 @@ function Tarea() {
         }
       </div>
     </>
-      
   )
 }
 
-export default Tarea
+export default Todo

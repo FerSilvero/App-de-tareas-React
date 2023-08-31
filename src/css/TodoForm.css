@@ -1,0 +1,53 @@
+.todo-form {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  gap: 5px;
+  padding: 10px 20px;
+}
+
+.todo-input {
+  font-size: 1em;
+  padding: 10px 16px;
+  background-color: #EEE;
+  border: 2px solid #EEE;
+  border-radius: 4px;
+  outline: none;
+}
+
+.todo-button{
+  color: #EEE;
+  font-size: 1em;
+  padding: 0.5rem;
+  border: 1px solid #E23E57;
+  border-radius: 4px;
+  cursor: pointer;
+  text-transform: capitalize;
+  transition: 0.5s;
+  transition-property: box-shadow;
+}
+
+.todo-button {
+  background: #E23E57;
+  box-shadow: 0 0 25px #E23E57;
+}
+  
+.todo-button:hover {
+  box-shadow: 0 0 5px #E23E57,
+              0 0 25px #E23E57,
+              0 0 50px #E23E57,
+              0 0 100px #E23E57;
+}
+
+.errores {
+  color: #EEEEEE;
+  font-style: italic;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 767px) {
+  .todo-input,
+  .todo-button {
+    font-size: 0.8em;
+  }
+}

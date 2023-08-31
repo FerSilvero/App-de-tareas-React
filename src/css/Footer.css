@@ -1,0 +1,49 @@
+.footer {
+  display: grid;
+  place-items: center;
+  grid-template-columns: 8fr 1fr 1fr;
+  gap: 5px;
+  height: 50px;
+}
+.footer-text {
+  color: #c9d1d9;
+  font-family: Roboto, sans-serif;
+  font-style: italic;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  cursor: default;
+}
+
+.github-icon {
+  color: #c9d1d9;
+  background-color: #000;
+  font-size: 1.3rem;
+  border-radius: 50%;
+  transition: 0.3s;
+  transition-property: box-shadow;
+}
+
+.github-icon:hover {
+  color: #c9d1d9;
+  box-shadow: 0 0 5px #c9d1d9,
+              0 0 5px #c9d1d9,
+              0 0 5px #c9d1d9,
+              0 0 5px #c9d1d9;
+}
+
+.linkedin-icon {
+  color: #c9d1d9;
+  background-color: #000;
+  font-size: 1.3rem;
+  border-radius: 50%;
+  transition: 0.3s;
+  transition-property: box-shadow;
+}
+
+.linkedin-icon:hover {
+  color: #00f;
+  box-shadow: 0 0 5px #00f,
+              0 0 5px #00f,
+              0 0 5px #00f,
+              0 0 5px #00f;
+}

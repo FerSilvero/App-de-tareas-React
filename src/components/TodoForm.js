@@ -1,10 +1,11 @@
 import React from 'react'
+import '../css/TodoForm.css'
 import { useState, useRef } from 'react'
-import '../hojas-de-estilos/TareaFormulario.css'
 import { v4 as uuidv4 } from 'uuid';
 
-function TareaFormulario(props) {
 
+function TodoForm(props) {
+  
   const [input, setInput] = useState(props.edit ? props.edit.texto : '');
   const [errores, setErrores] = useState(null)
 
@@ -50,24 +51,23 @@ function TareaFormulario(props) {
     setInput('');
     setErrores(null)
   }
-
+  
   return (
-    <form className='tarea-formulario'>
-      {props.edit ? (
+      <form className='todo-form'>
+        {props.edit ? (
         <>
-        <input 
-        className='tarea-input' //input-editar
+        <input className='todo-input'
         value={input}
         type='text'
         placeholder='Modifica la Tarea'
         ref={inputRef}
         name='texto'
         onChange={handleChange}
-      />
-      <button onClick={handleSubmit} className='shadow__btn'>
-        Editar Tarea
-      </button>
-      {
+        />
+        <button onClick={handleSubmit} className='todo-button'>
+          Editar
+        </button>
+        {
         errores&&
         <div className='errores'>
           {errores}
@@ -75,20 +75,19 @@ function TareaFormulario(props) {
       }
         </>
       ) : (
-        <>
-        <input 
-        className='tarea-input' //input-agregar
+        <> 
+        <input className='todo-input'
         value={input}
         type='text'
         placeholder='Escribe una Tarea'
         ref={inputRef}
         name='texto'
         onChange={handleChange}
-      />
-        <button onClick={handleSubmit} className='shadow__btn'> 
-        Agregar Tarea
-      </button>
-      {
+        />
+        <button onClick={handleSubmit} className='todo-button'>
+          Agregar
+        </button>
+        {
         errores&&
         <div className='errores'>
           {errores}
@@ -96,9 +95,8 @@ function TareaFormulario(props) {
       }
         </>
       )
-    }
-    </form>
+        }
+      </form>
   )
 }
-
-export default TareaFormulario
+export default TodoForm
